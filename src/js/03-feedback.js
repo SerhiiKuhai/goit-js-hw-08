@@ -10,9 +10,11 @@ input.addEventListener('input', throttle(onInput, 500));
 (function populateInput() {
   const formData = JSON.parse(localStorage.getItem(STORAGE_KEY));
 
-  if (formData) {
-    input.elements.email.value = formData.email || '';
-    input.elements.message.value = formData.message || '';
+  if (formData.email) {
+    input.elements.email.value = formData.email;
+  }
+  if (formData.message) {
+    input.elements.message.value = formData.message;
   }
 })();
 
